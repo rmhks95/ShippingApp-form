@@ -58,9 +58,7 @@ namespace DotNetShipping.SampleApp
              
                     var conn = new OleDbConnection();
                     conn.ConnectionString =
-                                "Provider=SQLOLEDB.1;" +
-                                "Data Source=sql;" +
-                                "User id=reports";
+                                "Provider=SQLOLEDB.1;" ;
 
                     OleDbCommand command = new OleDbCommand("SELECT [item_no],[comp_item_no] FROM [dbo].[imkitfil_sql ] where [item_no]= '" + part + "'", conn);
 
@@ -135,9 +133,7 @@ namespace DotNetShipping.SampleApp
         {
             var conn = new OleDbConnection();
             conn.ConnectionString =
-                        "Provider=SQLOLEDB.1;" +
-                        "Data Source=sql;" +
-                        "User id=reports";
+                        "Provider=SQLOLEDB.1;";
 
             //Command to get info on part that matches the entered part# 
             OleDbCommand command = new OleDbCommand("SELECT [item_no],[item_desc_1],[item_desc_2],[item_weight],[cube_width],[cube_height],[cube_length],[lot_size] FROM [dbo].[imitmidx_sql ] where [item_no]= '" + pn +"'", conn);
@@ -195,7 +191,7 @@ namespace DotNetShipping.SampleApp
             }
             
 
-        }
+        } 
 
 
 
@@ -205,20 +201,20 @@ namespace DotNetShipping.SampleApp
             var appSettings = ConfigurationManager.AppSettings;
 
             // You will need a license #, userid and password to utilize the UPS provider.
-            var upsLicenseNumber = "DD33F8DAE9F12D78";
-            var upsUserId = "jjkuesttob";
-            var upsPassword = ("tob123456*");
+            var upsLicenseNumber = "############";
+            var upsUserId = "############";
+            var upsPassword = ("############*");
 
             // You will need an account # and meter # to utilize the FedEx provider.
-            var fedexKey = "HvOs5PwqXhw40GeH"; //Test Key: "ffMloFez7JlC6YaK";
-            var fedexPassword = "7Nn2Ruyhk06FWpsyqGP311ypg"; //Test Password: "m1jGUiezQhQJggNWXGtUKX5yw";
-            var fedexAccountNumber = "219455682";
-            var fedexMeterNumber = "112280129"; //Productin Meter#:"118918154";
+            var fedexKey = "############"; //Test Key: "ffMloFez7JlC6YaK";
+            var fedexPassword = "############"; //Test Password: "m1jGUiezQhQJggNWXGtUKX5yw";
+            var fedexAccountNumber = "############";
+            var fedexMeterNumber = "############"; //Productin Meter#:"118918154";
             var fedexHubId = "5531"; // 5531 is the hubId to use in FedEx's test environment
             var fedexUseProduction = true;//Convert.ToBoolean(appSettings["FedExUseProduction"]);
 
             // You will need a userId to use the USPS provider. Your account will also need access to the production servers.
-            var uspsUserId = "234PERSO2626";
+            var uspsUserId = "############";
 
 
             //Gets state zipcode for destination (required by UPS for negotiated rates)
@@ -230,7 +226,7 @@ namespace DotNetShipping.SampleApp
 
             // Sets package destination/ origin addresses
             //       origin: hard coded to Humboldt
-            var origin = new Address("", "KS", "66748", "US", false);
+            var origin = new Address("", "", "#####", "US", false);
             var destination = new Address("", myZipCodeData.state_short, zipcode, myZipCodeData.country, res); // US Address
             //var destination = new Address("", "", "00907", "PR"); // Puerto Rico Address
             //var destination = new Address("", "", "L4W 1S2", "CA"); // Canada Address
